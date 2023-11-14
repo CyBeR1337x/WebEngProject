@@ -1,0 +1,19 @@
+﻿@model List<MusicLibraryWebApp.Models.Album>
+@{
+    ViewBag.Title = "ShowAlbums";
+}
+
+<h2>ShowAlbums</h2>
+
+<div class="row">
+
+    @foreach (var album in Model) {
+        <div class="col-lg-4">
+            <img src=@album.coverPath height="200" width="200" />
+            <div>
+                <b>Title :</b>@album.title
+            </div>
+        </div>
+    }
+
+</div>

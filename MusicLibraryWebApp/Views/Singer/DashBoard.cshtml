@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "DashBoard";
+}
+
+<h2>DashBoard</h2>
+@Html.ActionLink("Logout", "logout", "Singer", new { area = "" }, new { @class = "nav-link" })
+
+<b>SID: @Session["sid"]</b>
+<br />
+<b>Name: @Session["sname"]</b>
+
+
+<h2>Singer Dashboard</h2>
+
+<div class="d-flex justify-content-center gap-3">
+    <div class="bg-black p-3 rounded rounded-3">
+        @Html.ActionLink("Albums", "AddAlbum", "Album")
+    </div>
+    <div class="bg-black p-3 rounded rounded-3">
+        @Html.ActionLink("Show Albums","ShowAlbums","Album")
+    </div>
+    <div class="bg-black p-3 rounded rounded-3">
+        @Html.ActionLink("Songs", "songs", "Song")
+    </div>
+</div>
+

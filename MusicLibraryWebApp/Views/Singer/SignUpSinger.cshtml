@@ -1,0 +1,101 @@
+﻿@model MusicLibraryWebApp.Models.Singer
+
+@{
+    ViewBag.Title = "Singup";
+    List<SelectListItem> countries = new List<SelectListItem> {
+        new SelectListItem { Text = "Pakistan", Value = "Pakistan" },
+        new SelectListItem { Text = "India", Value = "India" },
+        new SelectListItem { Text = "USA", Value = "USA" },
+        new SelectListItem { Text = "UK", Value = "UK" },
+    };
+}
+
+<h2>SignUpSinger</h2>
+
+@using (Html.BeginForm()) {
+    <div class="form-horizontal">
+        <h4>Singer</h4>
+        @Html.ActionLink("Login", "login", "Singer")
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Sname, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Sname, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sname, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Email, new { type = "email", htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Country, countries, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                </td>
+                <td>
+                    @Html.RadioButtonFor(model => model.Gender, "M", new { Checked = "true", htmlAttributes = new { @class = "form-control" } }) <b>Male</b>
+                    @Html.RadioButtonFor(model => model.Gender, "F", new { htmlAttributes = new { @class = "form-control" } }) <b>Female</b>
+                </td>
+            </tr>
+
+
+
+        </table>
+
+
+        <div class="form-group mt-2">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-outline-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@if (IsPost) {
+    <table class="table table-bordered">
+        <tr>
+            <td>UserName: </td>
+            <td>@Model.Sid </td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td>@Model.Password </td>
+        </tr>
+    </table>
+}
