@@ -20,8 +20,7 @@ namespace MusicLibraryWebApp.Models {
                 conn.Close();
         }
 
-        public void IUD(string query)
-        {
+        public void IUD(string query) {
             cmd = new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
         }
@@ -29,8 +28,7 @@ namespace MusicLibraryWebApp.Models {
 
 
         //public 
-        public SqlDataReader GetData(string query)
-        {
+        public SqlDataReader GetData(string query) {
             cmd = new SqlCommand(query, conn);
             sdr = cmd.ExecuteReader();
             return sdr;
