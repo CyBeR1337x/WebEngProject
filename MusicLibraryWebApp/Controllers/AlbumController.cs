@@ -32,8 +32,10 @@ namespace MusicLibraryWebApp.Controllers {
 
             return View(album);
         }
-        public ActionResult ShowAlbums() {
-            string q = "SELECT coverpath, title FROM Album";
+
+        [HttpGet]
+        public ActionResult ShowAlbums(string sid) {
+            string q = $"SELECT coverpath, title FROM Album WHERE sid = '{sid}'";
             obj.ConOpen();
             SqlDataReader sdr = obj.GetData(q);
             List<Album> albumlist = new List<Album>();
@@ -45,5 +47,6 @@ namespace MusicLibraryWebApp.Controllers {
 
             return View(albumlist);
         }
+
     }
 }

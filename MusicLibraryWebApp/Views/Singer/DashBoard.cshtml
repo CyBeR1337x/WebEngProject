@@ -17,7 +17,10 @@
         @Html.ActionLink("Albums", "AddAlbum", "Album")
     </div>
     <div class="bg-black p-3 rounded rounded-3">
-        @Html.ActionLink("Show Albums","ShowAlbums","Album")
+        @*        @Html.ActionLink("Show Albums", "ShowAlbums", "Album", new { id = Session["sid"] }, null)
+        *@
+        <a href=/Album/ShowAlbums?sid=@Session["sid"]>Show Albums</a>
+
     </div>
     <div class="bg-black p-3 rounded rounded-3">
         @Html.ActionLink("Songs", "songs", "Song")
