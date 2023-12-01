@@ -123,12 +123,14 @@
     <Compile Include="Controllers\AlbumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SingerController.cs" />
+    <Compile Include="Controllers\SongController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\Singer.cs" />
+    <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -188,10 +190,13 @@
     <Content Include="Views\Singer\DashBoard.cshtml" />
     <Content Include="Views\Album\AddAlbum.cshtml" />
     <Content Include="Views\Album\ShowAlbums.cshtml" />
+    <Content Include="Views\Song\ViewSongs.cshtml" />
+    <Content Include="Views\Song\AddSong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
+    <Folder Include="Songs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

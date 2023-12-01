@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "ViewSongs";
+}
+
+<h2>View Songs</h2>
+
+<b>Singer:</b> @Session["Sid"]
+<b>Name:</b> @Session["Sname"]
+<br />
+
+<b>Album No: </b> @Request.QueryString["ano"]
+<b>Album: </b> @Request.QueryString["title"]
+<br />
+
+@Html.ActionLink("Add New Song", "AddSong", new {sid = Session["Sid"], 
+    ano = Request.QueryString["ano"], 
+    title = Request.QueryString["title"] })
+
+

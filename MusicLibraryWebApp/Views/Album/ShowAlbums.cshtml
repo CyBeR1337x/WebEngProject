@@ -8,10 +8,15 @@
 <div class="row">
 
     @foreach (var album in Model) {
-        <div class="col-lg-4">
-            <img src=@album.coverPath height="200" width="200" />
+        <div class="col-lg-4 mb-3 text-center py-3">
+            @*            <a href=/Song/ViewSongs?sid =@Session["sid"] &&ano=@album.ano>*@
+            <a href=@Url.Action("ViewSongs", "Song", new {sid = Session["sid"], ano = album.ano, title = album.title } )>
+
+                <img class="rounded rounded-2" src=@album.coverPath height="200" width="200" />
+            </a>
             <div>
-                <b>Title :</b>@album.title
+                <b>Ano: </b>@album.ano <br />
+                <b>Title: </b>@album.title
             </div>
         </div>
     }

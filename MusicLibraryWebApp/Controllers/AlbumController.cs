@@ -35,13 +35,13 @@ namespace MusicLibraryWebApp.Controllers {
 
         [HttpGet]
         public ActionResult ShowAlbums(string sid) {
-            string q = $"SELECT coverpath, title FROM Album WHERE sid = '{sid}'";
+            string q = $"SELECT ano, coverpath, title FROM Album WHERE sid = '{sid}'";
             obj.ConOpen();
             SqlDataReader sdr = obj.GetData(q);
             List<Album> albumlist = new List<Album>();
-            while (sdr.Read()) 
-                albumlist.Add(new Album { coverPath = sdr["coverpath"].ToString(), title = sdr["title"].ToString() });
-            
+            while (sdr.Read())
+                albumlist.Add(new Album { ano = int.Parse(sdr["ano"].ToString()), coverPath = sdr["coverpath"].ToString(), title = sdr["title"].ToString() });
+
             sdr.Close();
             obj.ConClose();
 

@@ -1,0 +1,56 @@
+﻿@model MusicLibraryWebApp.Models.Song
+
+@{
+    ViewBag.Title = "AddSong";
+}
+
+<b>Singer:</b> @Session["Sid"]
+<b>Name:</b> @Session["Sname"]
+<br />
+
+<b>Album No: </b> @Request.QueryString["ano"]
+<b>Album: </b> @Request.QueryString["title"]
+<br />
+
+<h2>Add Song</h2>
+
+@using (Html.BeginForm("AddSong", "Song", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    <div class="form-horizontal">
+        <h4>Song</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(m => m.Ano);
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sno, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Sno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Sno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Stitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Stitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Stitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mp3File, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Mp3File, new { type = "File", htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mp3File, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

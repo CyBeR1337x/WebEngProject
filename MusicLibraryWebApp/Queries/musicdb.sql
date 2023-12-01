@@ -20,3 +20,13 @@ CREATE TABLE Album (
 	CONSTRAINT FK_SID FOREIGN KEY(sid) REFERENCES Singer(sid)
 );
 
+CREATE TABLE Song(
+	sid varchar(20),
+	ano int,
+	sno int,
+	stitle varchar(30),
+	filepath varchar(MAX),
+	CONSTRAINT PK_ABC PRIMARY KEY(sid, ano, sno),
+	CONSTRAINT FK_YZ FOREIGN KEY(sid, ano) REFERENCES Album(sid, ano)
+);
+
