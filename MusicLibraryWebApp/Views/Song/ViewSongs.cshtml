@@ -1,8 +1,8 @@
-﻿
+﻿@model List<MusicLibraryWebApp.Models.Song>
 @{
-    ViewBag.Title = "ViewSongs";
+   ViewBag.Title = "ViewSongs";
 }
-
+<hr />
 <h2>View Songs</h2>
 
 <b>Singer:</b> @Session["Sid"]
@@ -17,4 +17,21 @@
     ano = Request.QueryString["ano"], 
     title = Request.QueryString["title"] })
 
+<h2>All Songs</h2>
+<table>
+    <tr>
+        <th>Sno</th>
+        <th>Title</th>
+        <th>File</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Sno</td>
+            <td>@item.Stitle</td>
+            <td><embed src="@item.FilePath"  /></td>
+            <td>@Html.ActionLink("Download", "DownloadSong", new {filePath = item.FilePath })</td>
+        </tr>
+    }
+</table>
 
